@@ -35,8 +35,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
     { href: "/quran-duas", label: "أدعية القرآن" },
   ]
 
-
- return (
+  return (
     <nav className="bg-primary dark:bg-gray-900 text-white shadow-lg sticky top-0 z-50 transition-colors duration-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3">
@@ -101,3 +100,44 @@ export default function Navigation({ currentPage }: NavigationProps) {
             </Button>
           </div>
         </div>
+
+        {/* Navigation Items - Desktop */}
+        <div className="hidden md:grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-1 pb-2 text-xs">
+          {navItems.slice(3).map((item) => (
+            <Link key={item.href} href={item.href}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className={`text-white hover:bg-white/20 h-8 text-xs w-full hover-lift ${
+                  currentPage === item.href ? "bg-secondary" : ""
+                }`}
+              >
+                {item.label}
+              </Button>
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden pb-4 space-y-1">
+            {navItems.slice(3).map((item) => (
+              <Link key={item.href} href={item.href}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-white hover:bg-white/20 w-full justify-start ${
+                    currentPage === item.href ? "bg-secondary" : ""
+                  }`}
+                >
+                  {item.label}
+                </Button>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </nav>
+  )
+}
