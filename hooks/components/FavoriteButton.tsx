@@ -36,3 +36,20 @@ export default function FavoriteButton({ zikrId, zikrText, zikrCategory }: Favor
       setIsFavorite(true)
     }
   }
+
+  return (
+    <Button
+      onClick={toggleFavorite}
+      variant="ghost"
+      size="icon"
+      className="rounded-full hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-all duration-200"
+      aria-label={isFavorite ? "إزالة من المفضلة" : "إضافة للمفضلة"}
+    >
+      <Heart
+        className={`w-5 h-5 transition-all duration-200 ${
+          isFavorite ? "fill-pink-500 text-pink-500" : "text-gray-400"
+        }`}
+      />
+    </Button>
+  )
+}
