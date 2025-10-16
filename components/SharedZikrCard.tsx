@@ -70,7 +70,6 @@ export default function SharedZikrCard({ zikr, index, category, storageKey }: Sh
       setCurrentCount(zikr.count)
     }
   }, [zikr.id, zikr.count, storageKey])
-  
 
   return (
     <Card
@@ -138,3 +137,49 @@ export default function SharedZikrCard({ zikr, index, category, storageKey }: Sh
                 </Badge>
               </div>
             </div>
+
+            <p className="text-foreground dark:text-gray-100 leading-relaxed text-lg font-medium text-right mb-6 hover:text-primary dark:hover:text-emerald-400 transition-colors duration-300">
+              {zikr.arabic}
+            </p>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Button
+                  onClick={handleIncrement}
+                  disabled={isCompleted}
+                  className={`px-6 py-2 font-bold transition-all duration-300 ${
+                    isCompleted
+                      ? "bg-emerald-500 text-white cursor-not-allowed"
+                      : "bg-primary hover:bg-primary/90 text-white hover-lift counter-bounce"
+                  }`}
+                >
+                  {isCompleted ? "مكتمل" : "تسبيح"}
+                </Button>
+
+                {currentCount > 0 && (
+                  <Button
+                    onClick={handleReset}
+                    variant="outline"
+                    size="sm"
+                    className="text-xs hover-lift bg-transparent gap-1"
+                  >
+                    <RotateCcw className="w-3 h-3" />
+                    إعادة تعيين
+                  </Button>
+                )}
+              </div>
+
+              <div className="text-sm text-muted-foreground dark:text-gray-400">
+                {currentCount > 0 && (
+                  <span className="animate-slide-in-right">
+                    التقدم: {Math.round((currentCount / zikr.count) * 100)}%
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
