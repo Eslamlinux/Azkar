@@ -44,3 +44,30 @@ export default function SharedZikrCard({ zikr, index, category, storageKey }: Sh
       }
     }
   }
+
+  const handleReset = () => {
+    setCurrentCount(0)
+    setIsCompleted(false)
+    localStorage.removeItem(`${storageKey}_${zikr.id}_completed`)
+
+    // Update completed list
+    const completed = JSON.parse(localStorage.getItem(`${storageKey}-completed`) || "[]")
+    const updated = completed.filter((id: number) => id !== zikr.id)
+    localStorage.setItem(`${storageKey}-completed`, JSON.stringify(updated))
+  }
+
+  const handlePlayAudio = () => {
+    setIsPlaying(!isPlaying)
+    if (!isPlaying) {
+      setTimeout(() => setIsPlaying(false), 3000)
+    }
+  }
+
+  useEffect(() => {
+    const completed = localStorage.getItem(`${storageKey}_${zikr.id}_completed`)
+    if (completed) {
+      setIsCompleted(true)
+      setCurrentCount(zikr.count)
+    }
+  }, [zikr.id, zikr.count, storageKey])
+  
