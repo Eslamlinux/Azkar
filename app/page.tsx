@@ -147,3 +147,39 @@ export default function HomePage() {
       count: "7 أذكار",
       color: "bg-gradient-to-br from-fuchsia-500 to-pink-600",
     },
+    {
+      title: "أدعية من القرآن",
+      description: "أدعية مباركة من كتاب الله",
+      href: "/quran-duas",
+      count: "8 أدعية",
+      color: "bg-gradient-to-br from-purple-500 to-indigo-600",
+    },
+  ]
+
+  return (
+    <div className="min-h-screen bg-background spiritual-gradient">
+      <Navigation currentPage="/" />
+
+      <header className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-16 shadow-lg">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl font-bold mb-6 animate-fade-in-up">موقع الأذكار الإسلامية</h1>
+          <p className="text-xl opacity-90 max-w-2xl mx-auto leading-relaxed animate-fade-in-up">
+            مجموعة شاملة من الأذكار والأدعية الإسلامية المأثورة من القرآن الكريم والسنة النبوية الشريفة
+          </p>
+          <div className="mt-8">
+            <Badge className="text-lg px-6 py-2 bg-white/20 text-white animate-pulse-gentle border-white/30">
+              أكثر من 100 ذكر ودعاء
+            </Badge>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto">
+          <Statistics totalAzkar={90} completedToday={completedToday} currentStreak={currentStreak} />
+
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">اختر قسم الأذكار</h2>
+            <p className="text-muted-foreground text-lg">
+              اختر من الأقسام التالية لتبدأ رحلتك الروحانية مع الأذكار والأدعية
+
