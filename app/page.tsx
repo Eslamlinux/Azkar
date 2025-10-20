@@ -105,3 +105,25 @@ export default function HomePage() {
       count: "6 أذكار",
       color: "bg-gradient-to-br from-yellow-500 to-amber-600",
     },
+     {
+      title: "أذكار دخول المنزل",
+      description: "أذكار دخول المنزل",
+      href: "/azkar-home-enter",
+      count: "2 ذكر",
+      color: "bg-gradient-to-br from-teal-500 to-cyan-600",
+    },
+    {
+      title: "أذكار الخروج من المنزل",
+      description: "أذكار الخروج من المنزل",
+      href: "/azkar-home-exit",
+      count: "2 ذكر",
+      color: "bg-gradient-to-br from-lime-500 to-green-600",
+    },
+    {
+      title: "أذكار دخول الخلاء",
+      description: "أذكار دخول الخلاء",
+      href: "/azkar-toilet-enter",
+      count: "1 ذكر",
+      color: "bg-gradient-to-br from-sky-500 to-blue-600",
+    },
+
