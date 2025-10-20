@@ -76,4 +76,42 @@ export default function FavoritesPage() {
                   حذف الكل
                 </Button>
               </div>
+  <div className="space-y-4">
+                {favorites.map((favorite) => (
+                  <Card
+                    key={favorite.id}
+                    className="shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-gray-800"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <Badge className="mb-3 bg-emerald-500 text-white">{favorite.category}</Badge>
+                          <p className="text-xl leading-relaxed text-gray-800 dark:text-gray-200 mb-3 text-right">
+                            {favorite.text}
+                          </p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400 text-right">
+                            أضيف في: {new Date(favorite.addedAt).toLocaleDateString("ar-SA")}
+                          </p>
+                        </div>
+                        <Button
+                          onClick={() => removeFavorite(favorite.id)}
+                          variant="ghost"
+                          size="icon"
+                          className="text-pink-500 hover:text-pink-700 hover:bg-pink-50 dark:hover:bg-pink-900/20"
+                        >
+                          <Heart className="w-5 h-5 fill-current" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </main>
 
+      <Footer />
+    </div>
+  )
+}
