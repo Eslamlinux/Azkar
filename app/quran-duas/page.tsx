@@ -44,3 +44,32 @@ const duas = [
     count: 3,
     source: "إبراهيم: 40",
   },
+  {
+    id: 7,
+    arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+    count: 1,
+    source: "الفرقان: 74",
+  },
+  {
+    id: 8,
+    arabic: "رَبِّ أَدْخِلْنِي مُدْخَلَ صِدْقٍ وَأَخْرِجْنِي مُخْرَجَ صِدْقٍ وَاجْعَل لِّي مِن لَّدُنكَ سُلْطَانًا نَّصِيرًا",
+    count: 1,
+    source: "الإسراء: 80",
+  },
+]
+
+export default function QuranDuasPage() {
+  const [completedCount, setCompletedCount] = useState(0)
+  const [totalProgress, setTotalProgress] = useState(0)
+
+  useEffect(() => {
+    const updateProgress = () => {
+      let completed = 0
+      duas.forEach((dua) => {
+        const saved = localStorage.getItem(`quran-duas-${dua.id}`)
+        if (saved && Number.parseInt(saved) >= dua.count) {
+          completed++
+        }
+      })
+
+
