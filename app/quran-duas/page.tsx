@@ -72,4 +72,34 @@ export default function QuranDuasPage() {
         }
       })
 
+  setCompletedCount(completed)
+      setTotalProgress(Math.round((completed / duas.length) * 100))
+    }
 
+    updateProgress()
+    const interval = setInterval(updateProgress, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950">
+      <Navigation currentPage="/quran-duas" />
+
+      <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4 animate-fade-in-up">أدعية من القرآن</h1>
+            <p className="text-lg opacity-90 mb-6">أدعية مباركة من كتاب الله العزيز</p>
+
+            <div className="max-w-md mx-auto">
+              <div className="flex items-center justify-between text-sm mb-2">
+                <span>التقدم الإجمالي</span>
+                <span>
+                  {completedCount} / {duas.length}
+                </span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-3">
+                <div
+                  className="bg-white h-3 rounded-full transition-all duration-1000"
+                  style={{ width: `${totalProgress}%` }}
+                ></div>
