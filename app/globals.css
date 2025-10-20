@@ -254,3 +254,33 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #059669;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
