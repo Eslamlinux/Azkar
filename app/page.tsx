@@ -212,4 +212,35 @@ export default function HomePage() {
             ))}
           </div>
 
+   <div className="mt-16 text-center">
+            <Card className="p-8 hover-lift border-primary/20 max-w-2xl mx-auto">
+              <CardContent className="p-0">
+                <h3 className="text-2xl font-bold text-foreground mb-4">فضل الذكر</h3>
+                <p className="text-foreground text-lg font-medium mb-4 animate-pulse-gentle">
+                  "وَاذْكُرُوا اللَّهَ كَثِيرًا لَعَلَّكُمْ تُفْلِحُونَ"
+                </p>
+                <p className="text-muted-foreground">سورة الأنفال - آية 45</p>
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                  <div className="bg-emerald-50 dark:bg-emerald-950 p-4 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                    <div className="font-semibold text-emerald-700 dark:text-emerald-300 mb-2">طمأنينة القلب</div>
+                    <div className="text-muted-foreground">الذكر يجلب السكينة والراحة النفسية</div>
+                  </div>
+                  <div className="bg-amber-50 dark:bg-amber-950 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
+                    <div className="font-semibold text-amber-700 dark:text-amber-300 mb-2">محو الذنوب</div>
+                    <div className="text-muted-foreground">الأذكار تمحو السيئات وترفع الدرجات</div>
+                  </div>
+                  <div className="bg-blue-50 dark:bg-blue-950 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                    <div className="font-semibold text-blue-700 dark:text-blue-300 mb-2">الحفظ والحماية</div>
+                    <div className="text-muted-foreground">الأذكار حصن من الشيطان والمكاره</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
 
+      <Footer />
+    </div>
+  )
+}
