@@ -48,4 +48,25 @@ export default function StatisticsPage() {
         percentage: Math.round((completedCount / page.total) * 100),
       })
     })
+setStats(pageStats)
+    setTotalCompleted(total)
+
+    // حساب السلسلة المتتالية
+    const streak = localStorage.getItem("current-streak")
+    setCurrentStreak(streak ? Number.parseInt(streak) : 0)
+  }, [])
+
+  const totalAzkar = stats.reduce((sum, stat) => sum + stat.total, 0)
+  const overallPercentage = totalAzkar > 0 ? Math.round((totalCompleted / totalAzkar) * 100) : 0
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+      <Navigation currentPage="statistics" />
+
+      <header className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-12 shadow-lg">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4">📊 إحصائياتي</h1>
+          <p className="text-purple-100 text-lg">تتبع تقدمك في الأذكار اليومية</p>
+        </div>
+      </header>
 
