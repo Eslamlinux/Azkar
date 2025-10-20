@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Professional Islamic design tokens for engaging user experience */
+  --background: #ffffff; /* Clean white background for calmness */
+  --foreground: #475569; /* Dark slate for primary text readability */
+  --card: #f1f5f9; /* Light slate card background for content sections */
+  --card-foreground: #475569; /* Dark slate for card content text */
+  --popover: #ffffff; /* White popover background */
+  --popover-foreground: #475569; /* Dark slate text for popovers */
+  --primary: #059669; /* Emerald green for Islamic theme and call-to-action */
+  --primary-foreground: #ffffff; /* White text on primary buttons */
+  --secondary: #10b981; /* Lighter emerald for secondary actions */
+  --secondary-foreground: #ffffff; /* White text on secondary buttons */
+  --muted: #f1f5f9; /* Light slate muted background */
+  --muted-foreground: #475569; /* Dark slate for muted text */
+  --accent: #10b981; /* Emerald accent for highlights and interactions */
+  --accent-foreground: #ffffff; /* White text on accent elements */
+  --destructive: #be123c; /* Rose red for destructive actions */
+  --destructive-foreground: #ffffff; /* White text for destructive actions */
+  --border: #e0e0e0; /* Light gray borders for subtle separation */
+  --input: #f9fafb; /* Very light gray input backgrounds */
+  --ring: rgba(5, 150, 105, 0.5); /* Soft emerald focus ring */
+  --chart-1: #059669;
+  --chart-2: #10b981;
+  --chart-3: #ecfeff;
+  --chart-4: #f1f5f9;
+  --chart-5: #be123c;
+
