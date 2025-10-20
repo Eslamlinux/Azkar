@@ -145,4 +145,25 @@ setStats(pageStats)
           </Card>
 
           {/* رسالة تحفيزية */}
+  <Card className="mt-8 bg-gradient-to-r from-emerald-500 to-teal-500 text-white border-0 shadow-xl">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-2xl font-bold mb-3">
+                {overallPercentage === 100
+                  ? "🎉 ممتاز! لقد أكملت جميع الأذكار!"
+                  : overallPercentage >= 75
+                    ? "💪 أنت قريب من الهدف!"
+                    : overallPercentage >= 50
+                      ? "👍 استمر في التقدم!"
+                      : "🌟 ابدأ رحلتك مع الأذكار!"}
+              </h3>
+              <p className="text-emerald-100 text-lg">"وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ"</p>
+              <p className="text-emerald-200 text-sm mt-2">سورة الأنفال - آية 45</p>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
 
+      <Footer />
+    </div>
+  )
+}
