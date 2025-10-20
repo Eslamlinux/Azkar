@@ -51,3 +51,29 @@ const wakeAzkar: ZikrItem[] = [
   },
 ]
 
+export default function AzkarWakePage() {
+  const [completedCount, setCompletedCount] = useState(0)
+
+  useEffect(() => {
+    const updateCompletedCount = () => {
+      let completed = 0
+      wakeAzkar.forEach((zikr) => {
+        const saved = localStorage.getItem(`wake-zikr-${zikr.id}`)
+        if (saved && Number.parseInt(saved) >= zikr.count) {
+          completed++
+        }
+      })
+      setCompletedCount(completed)
+    }
+
+    updateCompletedCount()
+    const interval = setInterval(updateCompletedCount, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const progressPercentage = (completedCount / wakeAzkar.length) * 100
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+      <Navigation currentPage="azkar-wake" />
+
