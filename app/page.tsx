@@ -182,4 +182,34 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-foreground mb-4">اختر قسم الأذكار</h2>
             <p className="text-muted-foreground text-lg">
               اختر من الأقسام التالية لتبدأ رحلتك الروحانية مع الأذكار والأدعية
+ </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {azkarSections.map((section, index) => (
+              <Link key={section.href} href={section.href}>
+                <Card
+                  className="overflow-hidden hover-lift animate-fade-in-up transition-all duration-300 hover:shadow-xl group cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className={`h-32 ${section.color} relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-white text-center">
+                        <h3 className="text-xl font-bold mb-2">{section.title}</h3>
+                        <Badge className="bg-white/20 text-white border-white/30">{section.count}</Badge>
+                      </div>
+                    </div>
+                  </div>
+                  <CardContent className="p-6">
+                    <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground transition-colors">
+                      {section.description}
+                    </p>
+                    <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-white">ابدأ الأذكار</Button>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
 
