@@ -78,3 +78,35 @@ export default function AzkarTravelPage() {
           <div className="flex items-center justify-center gap-4 text-lg">
             <span>
               التقدم: {completedCount}/{travelAzkar.length}
+
+	                 </span>
+            <div className="w-32 h-2 bg-white/20 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-white transition-all duration-500"
+                style={{ width: `${progressPercentage}%` }}
+              />
+            </div>
+            <span>{Math.round(progressPercentage)}%</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-6">
+          {travelAzkar.map((zikr) => (
+            <SharedZikrCard
+              key={zikr.id}
+              zikr={zikr}
+              storageKey={`azkar-travel-${zikr.id}`}
+              accentColor="from-slate-800 to-slate-700"
+            />
+          ))}
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
+
