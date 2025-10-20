@@ -76,3 +76,23 @@ export default function AzkarToiletExitPage() {
           </div>
         </div>
 
+        <div className="grid gap-6 max-w-4xl mx-auto">
+          {azkarToiletExit.map((zikr, index) => (
+            <SharedZikrCard key={zikr.id} zikr={zikr} storageKey={`toilet-exit-zikr-${zikr.id}`} />
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3">فضل الحمد والاستغفار عند الخروج</h3>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              حمد الله والاستغفار عند الخروج من الخلاء سنة مستحبة، وهو شكر لله على نعمة إخراج الأذى من الجسم وطلب
+              المغفرة. هذا الذكر يطهر النفس ويذكر المسلم بنعم الله العظيمة في كل لحظة من حياته.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  )
+}
