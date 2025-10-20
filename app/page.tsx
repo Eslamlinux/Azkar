@@ -49,4 +49,38 @@ export default function HomePage() {
       color: "bg-gradient-to-br from-amber-500 to-orange-600",
     },
     {
-
+{
+      title: "أذكار المساء",
+      description: "أذكار وأدعية المساء المباركة",
+      href: "/azkar-masa",
+      count: "25 ذكر",
+      color: "bg-gradient-to-br from-blue-500 to-purple-600",
+    },
+    {
+      title: "أذكار النوم",
+      description: "أذكار ما قبل النوم والراحة",
+      href: "/azkar-nawm",
+      count: "7 أذكار",
+      color: "bg-gradient-to-br from-indigo-500 to-purple-600",
+    },
+    {
+      title: "أذكار الصلاة",
+      description: "أذكار ما بعد الصلاة",
+      href: "/azkar-salah",
+      count: "8 أذكار",
+      color: "bg-gradient-to-br from-emerald-500 to-teal-600",
+    },
+    {
+      title: "أذكار المسجد",
+      description: "أذكار دخول والخروج من المسجد",
+      href: "/azkar-masjid",
+      count: "4 أذكار",
+      color: "bg-gradient-to-br from-green-500 to-emerald-600",
+    },
+    {
+      title: "أذكار الوضوء",
+      description: "أذكار الوضوء والطهارة",
+      href: "/azkar-wudu",
+      count: "3 أذكار",
+      color: "bg-gradient-to-br from-cyan-500 to-blue-600",
+    },
