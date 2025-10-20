@@ -76,4 +76,44 @@ export default function AzkarWakePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
       <Navigation currentPage="azkar-wake" />
+   {/* Header */}
+      <div className="bg-gradient-to-r from-slate-800 to-slate-700 text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4 text-white">أذكار الاستيقاظ</h1>
+          <div className="flex items-center justify-center gap-4 text-lg">
+            <span>
+              التقدم: {completedCount}/{wakeAzkar.length}
+            </span>
+            <div className="w-32 h-2 bg-white/20 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-white transition-all duration-500"
+                style={{ width: `${progressPercentage}%` }}
+              />
+            </div>
+            <span>{Math.round(progressPercentage)}%</span>
+          </div>
+        </div>
+      </div>
 
+      {/* Content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-6">
+          {wakeAzkar.map((zikr) => (
+            <SharedZikrCard
+              key={zikr.id}
+              zikr={{
+                id: zikr.id,
+                text: zikr.arabic,
+                count: zikr.count,
+                source: zikr.source,
+              }}
+              storageKey="wake-zikr"
+            />
+          ))}
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
