@@ -78,4 +78,40 @@ export default function AzkarWeatherPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <Navigation currentPage="azkar-weather" />
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-slate-800 dark:text-gray-100 mb-4">أذكار الطقس</h1>
+          <p className="text-lg text-slate-600 dark:text-gray-300 mb-6">أذكار وأدعية للمطر والرياح والرعد والبرق</p>
 
+          <div className="max-w-md mx-auto mb-6 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-slate-700 dark:text-gray-200">التقدم الإجمالي</span>
+              <span className="text-sm text-slate-600 dark:text-gray-300">
+                {completedCount} / {weatherAzkar.length}
+              </span>
+            </div>
+            <Progress value={overallProgress} className="h-3" />
+          </div>
+        </div>
+
+        <div className="grid gap-6 max-w-4xl mx-auto">
+          {weatherAzkar.map((zikr, index) => (
+            <SharedZikrCard key={zikr.id} zikr={zikr} storageKey={`weather-zikr-${zikr.id}`} />
+          ))}
+        </div>
+
+        <div className="text-center mt-8">
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
+            <h3 className="text-xl font-semibold text-slate-800 dark:text-gray-100 mb-3">فضل أذكار الطقس</h3>
+            <p className="text-slate-700 dark:text-gray-300 leading-relaxed">
+              هذه الأذكار تقال عند تغير الأحوال الجوية، فعند هبوب الرياح نستعيذ بالله من شرها ونسأله خيرها، وعند المطر
+              نحمد الله على فضله ورحمته، وعند الرعد نسبح الله العظيم.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  )
+}
