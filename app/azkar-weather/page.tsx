@@ -26,3 +26,31 @@ const weatherAzkar = [
     count: 1,
     source: "أبو داود",
   },
+  {
+    id: 3,
+    arabic: "مُطِرْنَا بِفَضْلِ اللَّهِ وَرَحْمَتِهِ",
+    transliteration: "Mutirnā bi fadli Allāhi wa rahmatihi",
+    translation: "مطرنا بفضل الله ورحمته",
+    count: 1,
+    source: "البخاري",
+  },
+  {
+    id: 4,
+    arabic: "اللَّهُمَّ حَوَالَيْنَا وَلَا عَلَيْنَا، اللَّهُمَّ عَلَى الآكَامِ وَالظِّرَابِ وَبُطُونِ الأَوْدِيَةِ وَمَنَابِتِ الشَّجَرِ",
+    transliteration:
+      "Allahumma hawalayna wa la 'alayna, Allahumma 'ala al-akam wa az-zirab wa butun al-awdiya wa manabiti ash-shajar",
+    translation: "اللهم حوالينا ولا علينا، اللهم على الآكام والظراب وبطون الأودية ومنابت الشجر",
+    count: 1,
+    source: "البخاري",
+  },
+  {
+    id: 5,
+    arabic: "سُبْحَانَ الَّذِي يُسَبِّحُ الرَّعْدُ بِحَمْدِهِ وَالْمَلَائِكَةُ مِنْ خِيفَتِهِ",
+    transliteration: "Subhan alladhi yusabbihu ar-ra'du bi hamdihi wa al-mala'ikatu min khifatihi",
+    translation: "سبحان الذي يسبح الرعد بحمده والملائكة من خيفته",
+    count: 1,
+    source: "الترمذي",
+  },
+]
+
+
