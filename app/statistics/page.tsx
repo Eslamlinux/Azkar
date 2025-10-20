@@ -69,4 +69,27 @@ setStats(pageStats)
           <p className="text-purple-100 text-lg">تتبع تقدمك في الأذكار اليومية</p>
         </div>
       </header>
+ <main className="container mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto">
+          {/* إحصائيات عامة */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <Card className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white border-0 shadow-xl">
+              <CardContent className="p-8 text-center">
+                <div className="text-5xl font-bold mb-3">{totalCompleted}</div>
+                <div className="text-emerald-100 text-lg">إجمالي الأذكار المكتملة</div>
+                <div className="text-sm text-emerald-200 mt-2">من أصل {totalAzkar} ذكر</div>
+              </CardContent>
+            </Card>
 
+            <Card className="bg-gradient-to-br from-amber-500 to-orange-500 text-white border-0 shadow-xl">
+              <CardContent className="p-8 text-center">
+                <div className="text-5xl font-bold mb-3">{overallPercentage}%</div>
+                <div className="text-amber-100 text-lg">نسبة الإنجاز الكلية</div>
+                <div className="w-full bg-white/30 rounded-full h-2 mt-4">
+                  <div
+                    className="h-full bg-white rounded-full transition-all duration-1000"
+                    style={{ width: `${overallPercentage}%` }}
+                  />
+                </div>
+              </CardContent>
+            </Card>
