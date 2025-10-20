@@ -103,3 +103,40 @@ export default function QuranDuasPage() {
                   className="bg-white h-3 rounded-full transition-all duration-1000"
                   style={{ width: `${totalProgress}%` }}
                 ></div>
+		  </div>
+              <p className="text-sm mt-2 opacity-90">
+                {totalProgress === 100 ? "تم إكمال جميع الأدعية!" : "استمر في الدعاء بهذه الأدعية المباركة"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6">
+            {duas.map((dua, index) => (
+              <SharedZikrCard key={dua.id} zikr={dua} index={index} storageKey="quran-duas" />
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Separator className="mb-8 bg-border" />
+            <Card className="p-8 hover-lift border-primary/20">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold text-foreground mb-3">فضل الدعاء بأدعية القرآن</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  هذه الأدعية المباركة وردت في القرآن الكريم، وهي من أجمع الأدعية وأنفعها. ادع بها في أوقات الإجابة
+                  واجعلها من أورادك اليومية، فإن الله تعالى علمنا إياها لحكمة عظيمة.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
+
