@@ -54,3 +54,28 @@ const weatherAzkar = [
 ]
 
 
+export default function AzkarWeatherPage() {
+  const [completedCount, setCompletedCount] = useState(0)
+
+  useEffect(() => {
+    const updateCompletedCount = () => {
+      let completed = 0
+      weatherAzkar.forEach((zikr) => {
+        const saved = localStorage.getItem(`weather-zikr-${zikr.id}`)
+        if (saved && Number.parseInt(saved) >= zikr.count) {
+          completed++
+        }
+      })
+      setCompletedCount(completed)
+    }
+
+    updateCompletedCount()
+    const interval = setInterval(updateCompletedCount, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const overallProgress = (completedCount / weatherAzkar.length) * 100
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+
