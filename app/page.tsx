@@ -126,4 +126,24 @@ export default function HomePage() {
       count: "1 ذكر",
       color: "bg-gradient-to-br from-sky-500 to-blue-600",
     },
-
+ {
+      title: "أذكار الخروج من الخلاء",
+      description: "أذكار الخروج من الخلاء",
+      href: "/azkar-toilet-exit",
+      count: "1 ذكر",
+      color: "bg-gradient-to-br from-indigo-500 to-blue-600",
+    },
+    {
+      title: "أذكار الطقس",
+      description: "أذكار المطر والرعد والبرق",
+      href: "/azkar-weather",
+      count: "3 أذكار",
+      color: "bg-gradient-to-br from-gray-500 to-slate-600",
+    },
+    {
+      title: "أذكار متنوعة",
+      description: "أذكار متنوعة للتسبيح والاستغفار",
+      href: "/azkar-misc",
+      count: "7 أذكار",
+      color: "bg-gradient-to-br from-fuchsia-500 to-pink-600",
+    },
