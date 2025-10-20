@@ -32,3 +32,20 @@ export default function StatisticsPage() {
       { name: "azkar-wake", displayName: "أذكار الاستيقاظ", total: 6 },
     ]
 
+    const pageStats: PageStats[] = []
+    let total = 0
+
+    pages.forEach((page) => {
+      const completed = localStorage.getItem(`${page.name}-completed`)
+      const completedCount = completed ? JSON.parse(completed).length : 0
+      total += completedCount
+
+      pageStats.push({
+        name: page.name,
+        displayName: page.displayName,
+        total: page.total,
+        completed: completedCount,
+        percentage: Math.round((completedCount / page.total) * 100),
+      })
+    })
+
