@@ -39,3 +39,24 @@ const azkarWudu: Zikr[] = [
   },
 ]
 
+export default function AzkarWuduPage() {
+  const [totalProgress, setTotalProgress] = useState(0)
+  const [completedCount, setCompletedCount] = useState(0)
+
+  useEffect(() => {
+    const updateProgress = () => {
+      let completed = 0
+      azkarWudu.forEach((zikr) => {
+        if (localStorage.getItem(`zikr_wudu_${zikr.id}_completed`)) {
+          completed++
+        }
+      })
+      setCompletedCount(completed)
+      setTotalProgress(Math.round((completed / azkarWudu.length) * 100))
+    }
+
+    updateProgress()
+    const interval = setInterval(updateProgress, 500)
+    return () => clearInterval(interval)
+  }, [])
+
