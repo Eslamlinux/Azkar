@@ -49,7 +49,6 @@ export default function HomePage() {
       color: "bg-gradient-to-br from-amber-500 to-orange-600",
     },
     {
-{
       title: "أذكار المساء",
       description: "أذكار وأدعية المساء المباركة",
       href: "/azkar-masa",
@@ -84,7 +83,7 @@ export default function HomePage() {
       count: "3 أذكار",
       color: "bg-gradient-to-br from-cyan-500 to-blue-600",
     },
-     {
+    {
       title: "أذكار الطعام",
       description: "أذكار قبل وبعد الطعام",
       href: "/azkar-food",
@@ -105,7 +104,7 @@ export default function HomePage() {
       count: "6 أذكار",
       color: "bg-gradient-to-br from-yellow-500 to-amber-600",
     },
-     {
+    {
       title: "أذكار دخول المنزل",
       description: "أذكار دخول المنزل",
       href: "/azkar-home-enter",
@@ -126,7 +125,7 @@ export default function HomePage() {
       count: "1 ذكر",
       color: "bg-gradient-to-br from-sky-500 to-blue-600",
     },
- {
+    {
       title: "أذكار الخروج من الخلاء",
       description: "أذكار الخروج من الخلاء",
       href: "/azkar-toilet-exit",
@@ -182,7 +181,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-foreground mb-4">اختر قسم الأذكار</h2>
             <p className="text-muted-foreground text-lg">
               اختر من الأقسام التالية لتبدأ رحلتك الروحانية مع الأذكار والأدعية
- </p>
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -212,7 +211,7 @@ export default function HomePage() {
             ))}
           </div>
 
-   <div className="mt-16 text-center">
+          <div className="mt-16 text-center">
             <Card className="p-8 hover-lift border-primary/20 max-w-2xl mx-auto">
               <CardContent className="p-0">
                 <h3 className="text-2xl font-bold text-foreground mb-4">فضل الذكر</h3>
