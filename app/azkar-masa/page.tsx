@@ -218,4 +218,29 @@ export default function AzkarAlMasaPage() {
         </div>
       </header>
 
-   
+       <main className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6">
+            {azkarData.map((zikr, index) => (
+              <SharedZikrCard key={zikr.id} zikr={zikr} index={index} storageKey="azkar-masa" />
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Separator className="mb-8 bg-border" />
+            <Card className="p-8 hover-lift border-primary/20">
+              <CardContent className="p-0">
+                <p className="text-foreground text-xl font-semibold mb-3 animate-pulse-gentle">
+                  "وَاذْكُرُوا اللَّهَ كَثِيرًا لَعَلَّكُمْ تُفْلِحُونَ"
+                </p>
+                <p className="text-muted-foreground">سورة الأنفال - آية 45</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  )
+} 
