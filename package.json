@@ -1,5 +1,6 @@
 {
   "name": "my-v0-project",
+  "homepage": "https://eslamlinux.github.io/Azkar/", 
   "version": "0.1.0",
   "private": true,
   "scripts": {
