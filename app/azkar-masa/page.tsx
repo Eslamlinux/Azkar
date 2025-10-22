@@ -141,4 +141,48 @@ const azkarData = [
     count: 7,
     source: "رواه أبو داود",
   },
+ {
+    id: 22,
+    arabic: "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ",
+    count: 10,
+    source: "رواه أبو داود",
+  },
+  {
+    id: 23,
+    arabic: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+    count: 100,
+    source: "رواه مسلم",
+  },
+  {
+    id: 24,
+    arabic: "لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    count: 10,
+    source: "رواه البخاري",
+  },
+  {
+    id: 25,
+    arabic:
+      "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، وَأَعُوذُ بِكَ مِنَ النَّارِ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ، وَأَسْتَغْفِرُ اللَّهَ مِنْ كُلِّ ذَنْبٍ أَجَلَّهُ",
+    count: 1,
+    source: "رواه ابن ماجه",
+  },
+]
+
+export default function AzkarAlMasaPage() {
+  const [totalProgress, setTotalProgress] = useState(0)
+  const [completedCount, setCompletedCount] = useState(0)
+
+  useEffect(() => {
+    const updateProgress = () => {
+      let completed = 0
+      azkarData.forEach((zikr) => {
+        const saved = localStorage.getItem(`azkar-masa-${zikr.id}`)
+        if (saved && Number.parseInt(saved) >= zikr.count) {
+          completed++
+        }
+      })
+      setCompletedCount(completed)
+      setTotalProgress(Math.round((completed / azkarData.length) * 100))
+    }
+
  
