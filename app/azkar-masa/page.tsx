@@ -185,4 +185,37 @@ export default function AzkarAlMasaPage() {
       setTotalProgress(Math.round((completed / azkarData.length) * 100))
     }
 
- 
+  updateProgress()
+    const interval = setInterval(updateProgress, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-background spiritual-gradient">
+      <Navigation currentPage="/azkar-masa" />
+
+      <header className="bg-primary text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4 animate-fade-in-up">أذكار المساء</h1>
+
+            <div className="max-w-md mx-auto">
+              <div className="flex items-center justify-between text-sm mb-2">
+                <span>التقدم اليومي</span>
+                <span>
+                  {completedCount}/{azkarData.length}
+                </span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-3">
+                <div
+                  className="bg-secondary h-3 rounded-full transition-all duration-1000 animate-shimmer"
+                  style={{ width: `${totalProgress}%` }}
+                ></div>
+              </div>
+              <p className="text-sm mt-2 opacity-90">{totalProgress}% مكتمل</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+   
