@@ -87,3 +87,21 @@ export default function AzkarFoodPage() {
         </div>
       </div>
 
+      {/* Content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-6">
+          {azkarFood.map((zikr) => (
+            <SharedZikrCard
+              key={zikr.id}
+              zikr={zikr}
+              storageKey={`azkar-food-${zikr.id}`}
+              accentColor="from-primary to-secondary"
+            />
+          ))}
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
