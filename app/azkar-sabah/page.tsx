@@ -73,3 +73,58 @@ const azkarSabahData = [
   },
 ]
 
+export default function AzkarSabahPage() {
+  const [totalProgress, setTotalProgress] = useState(0)
+  const [completedCount, setCompletedCount] = useState(0)
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const completed = JSON.parse(localStorage.getItem("azkar-sabah-completed") || "[]")
+      setCompletedCount(completed.length)
+      setTotalProgress(Math.round((completed.length / azkarSabahData.length) * 100))
+    }
+
+    updateProgress()
+
+    // Listen for storage changes to update progress in real-time
+    const handleStorageChange = () => updateProgress()
+    window.addEventListener("storage", handleStorageChange)
+
+    // Poll for changes every second (for same-tab updates)
+    const interval = setInterval(updateProgress, 1000)
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange)
+      clearInterval(interval)
+    }
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-background spiritual-gradient dark:bg-gray-900">
+      <Navigation currentPage="azkar-sabah" />
+
+      <header className="bg-primary dark:bg-emerald-800 text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4 animate-fade-in-up">أذكار الصباح</h1>
+
+            {/* Progress indicator */}
+            <div className="max-w-md mx-auto">
+              <div className="flex items-center justify-between text-sm mb-2">
+                <span>التقدم اليومي</span>
+                <span>
+                  {completedCount}/{azkarSabahData.length}
+                </span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-3">
+                <div
+                  className="bg-secondary h-3 rounded-full transition-all duration-1000 animate-shimmer"
+                  style={{ width: `${totalProgress}%` }}
+                ></div>
+              </div>
+              <p className="text-sm mt-2 opacity-90">{totalProgress}% مكتمل</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
