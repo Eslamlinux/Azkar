@@ -44,4 +44,33 @@ const miscAzkar = [
     count: 1,
     source: "الترمذي",
   },
+ {
+    id: 7,
+    arabic: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+    count: 7,
+    source: "البخاري",
+  },
+]
+
+export default function AzkarMiscPage() {
+  const [completedCount, setCompletedCount] = useState(0)
+  const [totalProgress, setTotalProgress] = useState(0)
+
+  useEffect(() => {
+    const updateProgress = () => {
+      let completed = 0
+      miscAzkar.forEach((zikr) => {
+        const saved = localStorage.getItem(`azkar-misc-${zikr.id}`)
+        if (saved && Number.parseInt(saved) >= zikr.count) {
+          completed++
+        }
+      })
+      setCompletedCount(completed)
+      setTotalProgress(Math.round((completed / miscAzkar.length) * 100))
+    }
+
+    updateProgress()
+    const interval = setInterval(updateProgress, 1000)
+    return () => clearInterval(interval)
+  }, [])
  
