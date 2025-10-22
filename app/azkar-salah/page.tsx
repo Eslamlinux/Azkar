@@ -64,3 +64,32 @@ const azkarSalah: Zikr[] = [
   },
 ]
 
+export default function AzkarSalahPage() {
+  const [totalCompleted, setTotalCompleted] = useState(0)
+
+  useEffect(() => {
+    const updateProgress = () => {
+      let completed = 0
+      azkarSalah.forEach((zikr) => {
+        const saved = localStorage.getItem(`zikr-count-azkar-salah-${zikr.id}`)
+        if (saved && Number.parseInt(saved) >= zikr.count) {
+          completed++
+        }
+      })
+      setTotalCompleted(completed)
+    }
+
+    updateProgress()
+    const interval = setInterval(updateProgress, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const totalAzkar = azkarSalah.length
+  const overallProgress = (totalCompleted / totalAzkar) * 100
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* Navigation */}
+      <Navigation currentPage="azkar-salah" />
+
+ 
