@@ -1,0 +1,47 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import Navigation from "@/components/Navigation"
+import Footer from "@/components/Footer"
+import SharedZikrCard from "@/components/SharedZikrCard"
+
+const miscAzkar = [
+  {
+    id: 1,
+    arabic: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    count: 100,
+    source: "البخاري",
+  },
+  {
+    id: 2,
+    arabic: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+    count: 100,
+    source: "البخاري",
+  },
+  {
+    id: 3,
+    arabic: "سُبْحَانَ اللَّهِ الْعَظِيمِ وَبِحَمْدِهِ",
+    count: 10,
+    source: "الترمذي",
+  },
+  {
+    id: 4,
+    arabic: "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
+    count: 3,
+    source: "أبو داود",
+  },
+  {
+    id: 5,
+    arabic: "رَبِّ اغْفِرْ لِي ذَنْبِي وَخَطَئِي وَجَهْلِي",
+    count: 3,
+    source: "البخاري",
+  },
+  {
+    id: 6,
+    arabic: "اللَّهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
+    count: 1,
+    source: "الترمذي",
+  },
+ 
