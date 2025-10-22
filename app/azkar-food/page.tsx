@@ -45,3 +45,45 @@ const azkarFood: Zikr[] = [
   },
 ]
 
+export default function AzkarFoodPage() {
+  const [completedCount, setCompletedCount] = useState(0)
+
+  useEffect(() => {
+    const updateProgress = () => {
+      let completed = 0
+      azkarFood.forEach((zikr) => {
+        const saved = localStorage.getItem(`zikr-count-azkar-food-${zikr.id}`)
+        if (saved && Number.parseInt(saved) >= zikr.count) {
+          completed++
+        }
+      })
+      setCompletedCount(completed)
+    }
+
+    updateProgress()
+    const interval = setInterval(updateProgress, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const overallProgress = (completedCount / azkarFood.length) * 100
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <Navigation currentPage="azkar-food" />
+
+      {/* Header */}
+      <div className="bg-gradient-to-r from-primary to-secondary dark:from-primary/80 dark:to-secondary/80 text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4 text-white">أذكار الطعام</h1>
+          <div className="flex items-center justify-center gap-4 text-lg">
+            <span>
+              التقدم: {completedCount}/{azkarFood.length}
+            </span>
+            <div className="w-32 h-2 bg-white/20 rounded-full overflow-hidden">
+              <div className="h-full bg-white transition-all duration-300" style={{ width: `${overallProgress}%` }} />
+            </div>
+            <span>{Math.round(overallProgress)}%</span>
+          </div>
+        </div>
+      </div>
+
