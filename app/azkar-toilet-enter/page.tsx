@@ -76,3 +76,24 @@ export default function AzkarToiletEnterPage() {
           </div>
         </div>
 
+        <div className="grid gap-6 max-w-4xl mx-auto">
+          {azkarToiletEnter.map((zikr, index) => (
+            <SharedZikrCard key={zikr.id} zikr={zikr} storageKey={`toilet-enter-zikr-${zikr.id}`} />
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3">فضل الاستعاذة عند دخول الخلاء</h3>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              الاستعاذة بالله من الخبث والخبائث عند دخول الخلاء سنة مؤكدة، وهي حماية من الشياطين والجن الذين يتواجدون في
+              هذه الأماكن. هذا الذكر يحفظ المسلم ويطهر المكان من الأرواح الخبيثة.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
