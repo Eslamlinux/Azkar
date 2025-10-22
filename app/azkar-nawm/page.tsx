@@ -76,3 +76,57 @@ export default function AzkarNawmPage() {
   }, [])
 
 
+  return (
+    <div className="min-h-screen bg-background spiritual-gradient">
+      <Navigation currentPage="azkar-nawm" />
+
+      <header className="bg-primary text-white py-8 shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4 animate-fade-in-up">أذكار النوم</h1>
+
+            <div className="max-w-md mx-auto">
+              <div className="flex items-center justify-between text-sm mb-2">
+                <span>التقدم اليومي</span>
+                <span>
+                  {completedCount}/{azkarNawmData.length}
+                </span>
+              </div>
+              <div className="w-full bg-white/20 rounded-full h-3">
+                <div
+                  className="bg-secondary h-3 rounded-full transition-all duration-1000 animate-shimmer"
+                  style={{ width: `${totalProgress}%` }}
+                ></div>
+              </div>
+              <p className="text-sm mt-2 opacity-90">{totalProgress}% مكتمل</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6">
+            {azkarNawmData.map((zikr, index) => (
+              <SharedZikrCard key={zikr.id} zikr={zikr} index={index} storagePrefix="nawm" />
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Separator className="mb-8 bg-border" />
+            <Card className="p-8 hover-lift border-primary/20">
+              <CardContent className="p-0">
+                <p className="text-foreground text-xl font-semibold mb-3 animate-pulse-gentle">
+                  "وَاذْكُرُوا اللَّهَ كَثِيرًا لَعَلَّكُمْ تُفْلِحُونَ"
+                </p>
+                <p className="text-muted-foreground">سورة الأنفال - آية 45</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
