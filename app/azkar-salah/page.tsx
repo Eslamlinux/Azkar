@@ -92,4 +92,43 @@ export default function AzkarSalahPage() {
       {/* Navigation */}
       <Navigation currentPage="azkar-salah" />
 
- 
+     {/* Header */}
+      <div className="bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-600 dark:to-orange-600 text-white py-8 shadow-lg">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-4 animate-fade-in">أذكار الصلاة</h1>
+          <div className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 inline-block">
+            <div className="flex items-center gap-4">
+              <div className="text-sm">التقدم اليومي</div>
+              <div className="w-32 h-2 bg-white/30 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-white transition-all duration-500 ease-out"
+                  style={{ width: `${overallProgress}%` }}
+                />
+              </div>
+              <div className="text-sm font-bold">
+                {totalCompleted}/{totalAzkar}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="grid gap-6">
+          {azkarSalah.map((zikr) => (
+            <SharedZikrCard
+              key={zikr.id}
+              zikr={zikr}
+              storageKey={`azkar-salah-${zikr.id}`}
+              accentColor="from-amber-500 to-orange-500"
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  )
+} 
