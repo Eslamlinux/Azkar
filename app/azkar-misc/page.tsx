@@ -102,4 +102,30 @@ export default function AzkarMiscPage() {
         </div>
       </header>
 
-   
+       <main className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6">
+            {miscAzkar.map((zikr, index) => (
+              <SharedZikrCard key={zikr.id} zikr={zikr} index={index} storageKey="azkar-misc" />
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Separator className="mb-8 bg-border" />
+            <Card className="p-8 hover-lift border-primary/20">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-semibold text-foreground mb-3">فضل الأذكار المتنوعة</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  هذه مجموعة من الأذكار المتنوعة التي يستحب الإكثار منها في جميع الأوقات، فهي تطهر القلب وتزكي النفس
+                  وتقرب العبد من ربه، وفيها أجر عظيم وثواب جزيل.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  )
+} 
