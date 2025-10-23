@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  basePath: '/Azkar',
+  assetPrefix: '/Azkar/',
   eslint: {
     ignoreDuringBuilds: true,
   },
