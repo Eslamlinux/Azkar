@@ -153,6 +153,27 @@ export default function HomePage() {
       count: "8 أدعية",
       color: "bg-gradient-to-br from-purple-500 to-indigo-600",
     },
+    {
+      title: "أدعية الأنبياء",
+      description: "أدعية الأنبياء والمرسلين من القرآن",
+      href: "/adeyat-anbiya",
+      count: "8 أدعية",
+      color: "bg-gradient-to-br from-purple-600 to-indigo-700",
+    },
+    {
+      title: "أدعية الاستغفار",
+      description: "أدعية التوبة والاستغفار من الذنوب",
+      href: "/adeyat-istighfar",
+      count: "8 أدعية",
+      color: "bg-gradient-to-br from-green-600 to-emerald-700",
+    },
+    {
+      title: "أدعية الرزق والمال",
+      description: "أدعية طلب الرزق الحلال والبركة",
+      href: "/adeyat-rizq",
+      count: "8 أدعية",
+      color: "bg-gradient-to-br from-amber-600 to-yellow-700",
+    },
   ]
 
   return (
@@ -167,7 +188,7 @@ export default function HomePage() {
           </p>
           <div className="mt-8">
             <Badge className="text-lg px-6 py-2 bg-white/20 text-white animate-pulse-gentle border-white/30">
-              أكثر من 100 ذكر ودعاء
+              أكثر من 120 ذكر ودعاء
             </Badge>
           </div>
         </div>

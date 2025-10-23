@@ -33,6 +33,9 @@ export default function Navigation({ currentPage }: NavigationProps) {
     { href: "/azkar-weather", label: "أذكار الطقس" },
     { href: "/azkar-misc", label: "أذكار متنوعة" },
     { href: "/quran-duas", label: "أدعية القرآن" },
+    { href: "/adeyat-anbiya", label: "أدعية الأنبياء" },
+    { href: "/adeyat-istighfar", label: "أدعية الاستغفار" },
+    { href: "/adeyat-rizq", label: "أدعية الرزق" },
   ]
 
   return (
