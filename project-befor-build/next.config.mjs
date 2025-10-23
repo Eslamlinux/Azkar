@@ -9,15 +9,7 @@ const nextConfig = {
   // (اختياري) تأكد من تعيينه إلى true
   trailingSlash: true,
 
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
+
 }
 
 export default nextConfig
