@@ -1,2 +1,5 @@
+src/node_modules/
+src/.next/
+src/out/
 node_modules/
 .next/
