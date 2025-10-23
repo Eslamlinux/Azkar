@@ -14,7 +14,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navItems = [
-    { href: "/home", label: "الرئيسية", icon: Home },
+    { href: "/", label: "الرئيسية", icon: Home },
     { href: "/statistics", label: "إحصائياتي", icon: BarChart3 },
     { href: "/favorites", label: "المفضلة", icon: Heart },
     { href: "/azkar-sabah", label: "أذكار الصباح" },
