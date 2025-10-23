@@ -45,14 +45,14 @@ export default function HomePage() {
       title: "أذكار الصباح",
       description: "أذكار وأدعية الصباح المستجابة",
       href: "/azkar-sabah",
-      count: "15 ذكر",
+      count: "33 ذكر",
       color: "bg-gradient-to-br from-amber-500 to-orange-600",
     },
     {
       title: "أذكار المساء",
       description: "أذكار وأدعية المساء المباركة",
       href: "/azkar-masa",
-      count: "25 ذكر",
+      count: "35 ذكر",
       color: "bg-gradient-to-br from-blue-500 to-purple-600",
     },
     {
@@ -188,7 +188,7 @@ export default function HomePage() {
           </p>
           <div className="mt-8">
             <Badge className="text-lg px-6 py-2 bg-white/20 text-white animate-pulse-gentle border-white/30">
-              أكثر من 120 ذكر ودعاء
+              أكثر من 150 ذكر ودعاء
             </Badge>
           </div>
         </div>
