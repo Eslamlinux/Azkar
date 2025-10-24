@@ -16,15 +16,28 @@ interface Zikr {
 
 interface SharedZikrCardProps {
   zikr: Zikr
-  index: number
-  category: string
-  storageKey: string
+ isCompleted?: boolean
+  onComplete?: () => void
+   animationDelay?: number
+
 }
 
-export default function SharedZikrCard({ zikr, index, category, storageKey }: SharedZikrCardProps) {
-  const [currentCount, setCurrentCount] = useState(0)
-  const [isCompleted, setIsCompleted] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
+export default function SharedZikrCard({ 
+zikr, 
+  isCompleted = false, 
+  onComplete, 
+  animationDelay = 0 
+}: SharedZikrCardProps) {
+
+    const [currentCount, setCurrentCount] = useState(0)
+  const [completed, setCompleted] = useState(isCompleted)
+    const [isPlaying, setIsPlaying] = useState(false)
+
+
+  // تحديث حالة الإكمال عند تغيير الخاصية
+  useEffect(() => {
+    setCompleted(isCompleted)
+  }, [isCompleted])
 
   const handleIncrement = () => {
     if (currentCount < zikr.count) {
@@ -32,29 +45,23 @@ export default function SharedZikrCard({ zikr, index, category, storageKey }: Sh
       setCurrentCount(newCount)
 
       if (newCount === zikr.count) {
-        setIsCompleted(true)
-        localStorage.setItem(`${storageKey}_${zikr.id}_completed`, "true")
-
-        // Update completed list
-        const completed = JSON.parse(localStorage.getItem(`${storageKey}-completed`) || "[]")
-        if (!completed.includes(zikr.id)) {
-          completed.push(zikr.id)
-          localStorage.setItem(`${storageKey}-completed`, JSON.stringify(completed))
-        }
+ 
+             setCompleted(true)
+        if (onComplete) {
+          onComplete()
+                   }
       }
     }
   }
 
   const handleReset = () => {
     setCurrentCount(0)
-    setIsCompleted(false)
-    localStorage.removeItem(`${storageKey}_${zikr.id}_completed`)
-
-    // Update completed list
-    const completed = JSON.parse(localStorage.getItem(`${storageKey}-completed`) || "[]")
-    const updated = completed.filter((id: number) => id !== zikr.id)
-    localStorage.setItem(`${storageKey}-completed`, JSON.stringify(updated))
-  }
+    
+     setCompleted(false)
+    if (onComplete && isCompleted) {
+      onComplete() // Toggle off completion
+    }
+      }
 
   const handlePlayAudio = () => {
     setIsPlaying(!isPlaying)
@@ -63,26 +70,19 @@ export default function SharedZikrCard({ zikr, index, category, storageKey }: Sh
     }
   }
 
-  useEffect(() => {
-    const completed = localStorage.getItem(`${storageKey}_${zikr.id}_completed`)
-    if (completed) {
-      setIsCompleted(true)
-      setCurrentCount(zikr.count)
-    }
-  }, [zikr.id, zikr.count, storageKey])
-
+ 
   return (
     <Card
       className={`overflow-hidden hover-lift animate-fade-in-up transition-all duration-500 dark:bg-gray-800 ${
-        isCompleted ? "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-700" : "bg-card"
-      }`}
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
+        completed ? "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-700" : "bg-card"
+            }`}
+      style={{ animationDelay: `${animationDelay}s` }}
+        >
       <CardContent className="p-0">
         <div className="flex">
           <div className="flex-shrink-0 w-24 bg-primary dark:bg-emerald-700 flex flex-col items-center justify-center relative">
-            <div className="text-white font-bold text-xl mb-1">{String(index + 1).padStart(2, "0")}</div>
-            <div className="relative w-8 h-8">
+            <div className="text-white font-bold text-xl mb-1">{String(zikr.id).padStart(2, "0")}</div>
+                        <div className="relative w-8 h-8">
               <svg className="w-8 h-8 transform -rotate-90" viewBox="0 0 32 32">
                 <circle cx="16" cy="16" r="14" stroke="rgba(255,255,255,0.3)" strokeWidth="2" fill="none" />
                 <circle
@@ -117,7 +117,7 @@ export default function SharedZikrCard({ zikr, index, category, storageKey }: Sh
               </div>
 
               <div className="flex items-center gap-2">
-                <FavoriteButton zikrId={`${storageKey}_${zikr.id}`} zikrText={zikr.arabic} zikrCategory={category} />
+                <FavoriteButton zikrId={`zikr_${zikr.id}`} zikrText={zikr.arabic} zikrCategory="azkar" />
 
                 <Button
                   size="sm"
@@ -146,17 +146,17 @@ export default function SharedZikrCard({ zikr, index, category, storageKey }: Sh
               <div className="flex items-center gap-3">
                 <Button
                   onClick={handleIncrement}
-                  disabled={isCompleted}
+                  disabled={completed}
                   className={`px-6 py-2 font-bold transition-all duration-300 ${
-                    isCompleted
+                    completed
                       ? "bg-emerald-500 text-white cursor-not-allowed"
                       : "bg-primary hover:bg-primary/90 text-white hover-lift counter-bounce"
                   }`}
                 >
-                  {isCompleted ? "مكتمل" : "تسبيح"}
+                  {completed ? "مكتمل" : "تسبيح"}
                 </Button>
 
-                {currentCount > 0 && (
+                {(currentCount > 0 || completed) && (
                   <Button
                     onClick={handleReset}
                     variant="outline"

@@ -1,11 +1,17 @@
 "use client"
 import { Separator } from "@/components/ui/separator"
+import { useState, useEffect } from "react"
+import { Card, CardContent } from "@/components/ui/card"
 import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import SharedZikrCard from "@/components/SharedZikrCard"
-import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
 
+
+/**
+ * بيانات أذكار النوم الشاملة من المصادر الإسلامية الأصيلة
+ * تشمل الأذكار المأثورة من القرآن والسنة النبوية
+ */
+ 
 const azkarNawmData = [
   {
     id: 1,

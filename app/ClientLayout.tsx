@@ -19,6 +19,13 @@ const cairo = Cairo({
   variable: "--font-cairo",
 })
 
+/**
+ * مكون ClientLayout الرئيسي
+ * يوفر التخطيط الأساسي للموقع مع دعم RTL والخطوط العربية
+ * 
+ * @param children - المحتوى الفرعي للصفحات
+ * @returns JSX.Element - التخطيط الأساسي مع HTML و body
+ */
 export default function ClientLayout({
   children,
 }: Readonly<{
