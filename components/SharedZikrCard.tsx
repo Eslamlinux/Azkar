@@ -19,7 +19,7 @@ interface SharedZikrCardProps {
  isCompleted?: boolean
   onComplete?: () => void
    animationDelay?: number
-   storageKey: string // تم إضافة هذه الخاصية هنا للوضوح لو كانت مطلوبة
+   storageKey: string 
 }
 
 export default function SharedZikrCard({ 
@@ -27,7 +27,7 @@ zikr,
   isCompleted = false, 
   onComplete, 
   animationDelay = 0 ,
-  storageKey // تم إضافة هذه الخاصية هنا للوضوح لو كانت مطلوبة
+  storageKey 
 }: SharedZikrCardProps) {
 
     const [currentCount, setCurrentCount] = useState(0)
@@ -39,9 +39,6 @@ zikr,
   useEffect(() => {
     setCompleted(isCompleted)
   }, [isCompleted])
-
-  // ملاحظة: تم إزالة لوجيك الـ localStorage من هذا المكون، 
-  // يفترض أن المكون الأب (AzkarSalahPage) هو من يدير حالته وحالة التخزين.
 
   const handleIncrement = () => {
     if (currentCount < zikr.count) {
@@ -143,10 +140,13 @@ zikr,
               </div>
             </div>
 
-            {/* تم التعديل هنا: إضافة style لتحديد خطوط تدعم رموز المصحف والحروف المعقدة */}
+            {/* تم التعديل هنا: 
+                1. زيادة حجم النص باستخدام Tailwind (من text-lg إلى text-2xl).
+                2. تحديث خاصية style بقائمة خطوط أوسع لدعم رموز المصحف (Uthmani). 
+            */}
             <p 
-                className="text-foreground dark:text-gray-100 leading-relaxed text-lg font-medium text-right mb-6 hover:text-primary dark:hover:text-emerald-400 transition-colors duration-300"
-                style={{ fontFamily: "Amiri, 'Traditional Arabic', 'Simplified Arabic', Tahoma, Arial, sans-serif" }} 
+                className="text-foreground dark:text-gray-100 leading-relaxed text-2xl font-medium text-right mb-6 hover:text-primary dark:hover:text-emerald-400 transition-colors duration-300"
+                style={{ fontFamily: "'Amiri', 'Scheherazade New', 'Noto Naskh Arabic', 'Traditional Arabic', 'Simplified Arabic', Tahoma, Arial, sans-serif" }} 
                 dangerouslySetInnerHTML={{ __html: zikr.arabic }}
             />
 
