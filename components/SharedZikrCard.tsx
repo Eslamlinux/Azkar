@@ -19,14 +19,15 @@ interface SharedZikrCardProps {
  isCompleted?: boolean
   onComplete?: () => void
    animationDelay?: number
-
+   storageKey: string // تم إضافة هذه الخاصية هنا للوضوح لو كانت مطلوبة
 }
 
 export default function SharedZikrCard({ 
 zikr, 
   isCompleted = false, 
   onComplete, 
-  animationDelay = 0 
+  animationDelay = 0 ,
+  storageKey // تم إضافة هذه الخاصية هنا للوضوح لو كانت مطلوبة
 }: SharedZikrCardProps) {
 
     const [currentCount, setCurrentCount] = useState(0)
@@ -38,6 +39,9 @@ zikr,
   useEffect(() => {
     setCompleted(isCompleted)
   }, [isCompleted])
+
+  // ملاحظة: تم إزالة لوجيك الـ localStorage من هذا المكون، 
+  // يفترض أن المكون الأب (AzkarSalahPage) هو من يدير حالته وحالة التخزين.
 
   const handleIncrement = () => {
     if (currentCount < zikr.count) {
@@ -66,6 +70,7 @@ zikr,
   const handlePlayAudio = () => {
     setIsPlaying(!isPlaying)
     if (!isPlaying) {
+      // Placeholder for actual audio playback logic
       setTimeout(() => setIsPlaying(false), 3000)
     }
   }
@@ -138,9 +143,11 @@ zikr,
               </div>
             </div>
 
-            <p className="text-foreground dark:text-gray-100 leading-relaxed text-lg font-medium text-right mb-6 hover:text-primary dark:hover:text-emerald-400 transition-colors duration-300">
-              {zikr.arabic}
-            </p>
+            {/* تم التعديل هنا: استخدام dangerouslySetInnerHTML لعرض وسم <br /> كفاصل سطر */}
+            <p 
+                className="text-foreground dark:text-gray-100 leading-relaxed text-lg font-medium text-right mb-6 hover:text-primary dark:hover:text-emerald-400 transition-colors duration-300"
+                dangerouslySetInnerHTML={{ __html: zikr.arabic }}
+            />
 
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
