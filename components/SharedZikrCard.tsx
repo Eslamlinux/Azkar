@@ -143,9 +143,10 @@ zikr,
               </div>
             </div>
 
-            {/* تم التعديل هنا: استخدام dangerouslySetInnerHTML لعرض وسم <br /> كفاصل سطر */}
+            {/* تم التعديل هنا: إضافة style لتحديد خطوط تدعم رموز المصحف والحروف المعقدة */}
             <p 
                 className="text-foreground dark:text-gray-100 leading-relaxed text-lg font-medium text-right mb-6 hover:text-primary dark:hover:text-emerald-400 transition-colors duration-300"
+                style={{ fontFamily: "Amiri, 'Traditional Arabic', 'Simplified Arabic', Tahoma, Arial, sans-serif" }} 
                 dangerouslySetInnerHTML={{ __html: zikr.arabic }}
             />
 
