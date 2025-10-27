@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Home, BarChart3, Heart, Menu, X } from "lucide-react"
+import { Home, BarChart3, Heart, Menu, X, FileUser } from "lucide-react"
+
 import ThemeToggle from "./ThemeToggle"
 import { useState } from "react"
 
@@ -17,6 +18,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
     { href: "/", label: "الرئيسية", icon: Home },
     { href: "/statistics", label: "إحصائياتي", icon: BarChart3 },
     { href: "/favorites", label: "المفضلة", icon: Heart },
+    { href: "https://eslamlinux.github.io/", label: "المطور", icon: FileUser },
     { href: "/azkar-sabah", label: "أذكار الصباح" },
     { href: "/azkar-masa", label: "أذكار المساء" },
     { href: "/azkar-nawm", label: "أذكار النوم" },

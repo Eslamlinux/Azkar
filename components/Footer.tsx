@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-emerald-500 mt-8 pt-6 text-center">
-          <p className="text-emerald-100">© 2024 موقع الأذكار - جميع الحقوق محفوظة</p>
+          <p className="text-emerald-100">Eslam Linux © 2025 موقع الأذكار - جميع الحقوق محفوظة</p>
           <p className="text-emerald-200 text-sm mt-2">"وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ"</p>
           
                    <div className="mt-4 pt-4 border-t border-emerald-500/50">

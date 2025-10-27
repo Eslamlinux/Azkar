@@ -66,7 +66,7 @@ export default function HomePage() {
       title: "أذكار الصلاة",
       description: "أذكار ما بعد الصلاة",
       href: "/azkar-salah",
-      count: "8 أذكار",
+      count: "15 أذكار",
       color: "bg-gradient-to-br from-emerald-500 to-teal-600",
     },
     {
@@ -143,7 +143,7 @@ export default function HomePage() {
       title: "أذكار متنوعة",
       description: "أذكار متنوعة للتسبيح والاستغفار",
       href: "/azkar-misc",
-      count: "7 أذكار",
+      count: "20 أذكار",
       color: "bg-gradient-to-br from-fuchsia-500 to-pink-600",
     },
     {
@@ -188,7 +188,7 @@ export default function HomePage() {
           </p>
           <div className="mt-8">
             <Badge className="text-lg px-6 py-2 bg-white/20 text-white animate-pulse-gentle border-white/30">
-              أكثر من 150 ذكر ودعاء
+              أكثر من 180 ذكر ودعاء
             </Badge>
           </div>
         </div>
